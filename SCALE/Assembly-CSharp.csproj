@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DoorManager.cs" />
      <Compile Include="Assets\Scripts\FlyCamera.cs" />
      <Compile Include="Assets\Scripts\LaserScript.cs" />
+     <Compile Include="Assets\Scripts\OpenDoor.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/kinsleysigmund/Development/CSC 592-VR/VR-project/SCALE/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

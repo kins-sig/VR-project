@@ -32,6 +32,16 @@ public class LaserScript : MonoBehaviour
             StopCoroutine("FireLaserDown");
             StartCoroutine("FireLaserDown");
         }
+
+        // RaycastHit hit;
+        //  if (Physics.Raycast(transform.position, transform.forward, out hit))
+        //  {
+        //      if(hit.collider)
+        //      {
+        //          Debug.Log("HIT");
+        //      }
+        //  }
+
     }
 
     IEnumerator FireLaserUp()
@@ -70,24 +80,22 @@ public class LaserScript : MonoBehaviour
             RaycastHit hit;
             scaleDownLine.SetPosition(0, ray.origin);
 
+
+
             if(Physics.Raycast(ray, out hit,100))
 			{
-                if(hit.collider.name == "companion cube"){
-                    Debug.Log("BAM");
-                }
+                if(hit.collider){
+                    // if(hit.collider.CompareTag( "Player"){
+                        Debug.Log("BAM");
+                    // }
+            }
                 scaleDownLine.SetPosition(1, hit.point);
-                if(hit.collider.CompareTag("Scaleable")){
-                    Debug.Log("We hit a player!");
-
-                }
 
             }
 			else 
                 scaleDownLine.SetPosition(1, ray.GetPoint(100));
             
-            if(hit.collider.CompareTag("Scaleable")){
-                Debug.Log("BAM");
-            }
+
 
             yield return null;
 		}
