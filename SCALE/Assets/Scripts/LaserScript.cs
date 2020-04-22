@@ -84,7 +84,7 @@ public class LaserScript : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit,100))
 			{
-                if(hit.collider){
+                if(hit.collider.tag == "Scaleable"){
                     // if(hit.collider.CompareTag( "Player"){
                         Debug.Log("BAM");
                     // }
@@ -101,7 +101,7 @@ public class LaserScript : MonoBehaviour
 		}
         scaleDownLine.enabled = false; 
 	}
-    void OnCollisionEnter(Collision other){
+    void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag ("Scalable")){
             Debug.Log("HI");
         }
