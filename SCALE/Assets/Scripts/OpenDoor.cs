@@ -10,12 +10,14 @@ public class OpenDoor : MonoBehaviour {
     
     private bool isTriggerActive = false;
     private bool isDoorOpened = false;
-    private bool firstTime = true;
+
+    AudioSource audio; 
 
     // Use this for initialization
 	void Start ()
     {
-        // OpenPanel.SetActive(false);
+        audio = GetComponent<AudioSource>();
+
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +31,7 @@ public class OpenDoor : MonoBehaviour {
     {
         //When player left triggered zone we hide panel with text
         isTriggerActive = false;
+        audio.Play(); 
         _animatorLD.SetBool("isopen", false);
         _animatorLD.Play("LDoorClose");
         _animatorRD.SetBool("isopen", false);
@@ -46,6 +49,7 @@ public class OpenDoor : MonoBehaviour {
             if (isDoorOpened == false)
             {
                 Debug.Log("OPENING");
+                audio.Play(); 
                 //OPEN LEFT DOOR
                 _animatorLD.SetBool("isopen", true);
                 _animatorLD.Play("LDoorOpen");
@@ -53,7 +57,6 @@ public class OpenDoor : MonoBehaviour {
                 _animatorRD.SetBool("isopen", true);
                 _animatorRD.Play("RDoorOpen");
                 isDoorOpened = true;
-                firstTime = false; 
             }
             // else
             // {

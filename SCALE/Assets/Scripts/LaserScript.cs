@@ -7,6 +7,7 @@ public class LaserScript : MonoBehaviour
 
     LineRenderer scaleUpLine; 
     LineRenderer scaleDownLine; 
+    AudioSource audio; 
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class LaserScript : MonoBehaviour
         scaleUpLine.enabled = false; 
         scaleDownLine = GameObject.FindWithTag("ScaleDown").GetComponent<LineRenderer>();
         scaleDownLine.enabled = false; 
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,8 @@ public class LaserScript : MonoBehaviour
             StartCoroutine("FireLaserDown");
         }
 
+
+
         // RaycastHit hit;
         //  if (Physics.Raycast(transform.position, transform.forward, out hit))
         //  {
@@ -47,6 +51,7 @@ public class LaserScript : MonoBehaviour
     IEnumerator FireLaserUp()
 	{
         scaleUpLine.enabled = true;
+        audio.Play();
 		while (Input.GetButton("Fire1"))
 		{
             Ray ray = new Ray(transform.position, transform.forward);
@@ -69,18 +74,18 @@ public class LaserScript : MonoBehaviour
             yield return null;
 		}
         scaleUpLine.enabled = false; 
+        audio.Stop();
 	}
 
     IEnumerator FireLaserDown()
 	{
         scaleDownLine.enabled = true;
+        audio.Play();
 		while (Input.GetButton("Fire2"))
 		{
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
             scaleDownLine.SetPosition(0, ray.origin);
-
-
 
             if(Physics.Raycast(ray, out hit,100))
 			{
@@ -90,22 +95,16 @@ public class LaserScript : MonoBehaviour
                     // }
             }
                 scaleDownLine.SetPosition(1, hit.point);
-
             }
 			else 
                 scaleDownLine.SetPosition(1, ray.GetPoint(100));
-            
-
 
             yield return null;
 		}
         scaleDownLine.enabled = false; 
+        audio.Stop(); 
 	}
-    void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag ("Scalable")){
-            Debug.Log("HI");
-        }
-    }
+  
     // void UpScale(Vector3 scale) {
  
     //      scale += new Vector3(0.1f,0.1f,0.1f);
