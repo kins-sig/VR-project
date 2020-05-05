@@ -20,14 +20,20 @@ public class OpenDoor : MonoBehaviour {
 
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        //When player activate trigger we show text
-        isTriggerActive = true;
-        // OpenPanel.SetActive(true);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //When player activate trigger we show text
+            isTriggerActive = true;
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            // OpenPanel.SetActive(true);
+
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         //When player left triggered zone we hide panel with text
         isTriggerActive = false;
@@ -37,6 +43,10 @@ public class OpenDoor : MonoBehaviour {
         _animatorRD.SetBool("isopen", false);
         _animatorRD.Play("RDoorClose");
         isDoorOpened = false;
+        other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+
+
         // OpenPanel.SetActive(false);
     }
 

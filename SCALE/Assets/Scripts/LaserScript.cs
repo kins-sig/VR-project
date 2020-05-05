@@ -35,17 +35,6 @@ public class LaserScript : MonoBehaviour
             StartCoroutine("FireLaserDown");
         }
 
-
-
-        // RaycastHit hit;
-        //  if (Physics.Raycast(transform.position, transform.forward, out hit))
-        //  {
-        //      if(hit.collider)
-        //      {
-        //          Debug.Log("HIT");
-        //      }
-        //  }
-
     }
 
     IEnumerator FireLaserUp()
@@ -61,8 +50,9 @@ public class LaserScript : MonoBehaviour
             if(Physics.Raycast(ray, out hit,100))
 			{
                 scaleUpLine.SetPosition(1, hit.point);
-                if(hit.collider.CompareTag("Scaleable")){
+                if(hit.collider.CompareTag("Scalable")){
                     Debug.Log("We hit a player!");
+                    hit.collider.gameObject.GetComponent<ScaleObjectScript>().UpScale(); 
 
                 }
 
@@ -89,11 +79,10 @@ public class LaserScript : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit,100))
 			{
-                if(hit.collider.tag == "Scaleable"){
-                    // if(hit.collider.CompareTag( "Player"){
+                if(hit.collider.tag == "Scalable"){
                         Debug.Log("BAM");
-                    // }
-            }
+                    hit.collider.gameObject.GetComponent<ScaleObjectScript>().DownScale();
+                }
                 scaleDownLine.SetPosition(1, hit.point);
             }
 			else 
@@ -104,15 +93,5 @@ public class LaserScript : MonoBehaviour
         scaleDownLine.enabled = false; 
         audio.Stop(); 
 	}
-  
-    // void UpScale(Vector3 scale) {
- 
-    //      scale += new Vector3(0.1f,0.1f,0.1f);
-    //      a.transform.localScale = scale;
-    //  }
-    //  void DownScale(Vector3 scale)
-    //  {
-    //      scale -= new Vector3(0.1f, 0.1f, 0.1f);
-    //      a.transform.localScale = scale;
-    //  }
+
 }

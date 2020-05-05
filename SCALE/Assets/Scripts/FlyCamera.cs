@@ -45,15 +45,15 @@ public class FlyCamera : MonoBehaviour {
        
         p = p * Time.deltaTime;
        Vector3 newPosition = transform.position;
-        if (Input.GetKey(KeyCode.Space)){ //If player wants to move on X and Z axis only
-            transform.Translate(p);
-            newPosition.x = transform.position.x;
-            newPosition.z = transform.position.z;
-            transform.position = newPosition;
-        }
-        else{
-            transform.Translate(p);
-        }
+     //If player wants to move on X and Z axis only
+          transform.Translate(p);
+          newPosition.x = transform.position.x;
+          newPosition.z = transform.position.z;
+          transform.position = newPosition;
+        //}
+        //else{
+        //    transform.Translate(p);
+        //}
        
     }
      

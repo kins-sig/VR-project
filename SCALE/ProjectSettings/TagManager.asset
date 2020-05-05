@@ -7,6 +7,7 @@ TagManager:
   - ScaleUp
   - ScaleDown
   - Scaleable
+  - Scalable
   layers:
   - Default
   - TransparentFX
