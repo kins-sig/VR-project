@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ScaleObjectScript : MonoBehaviour
 {
-    //public GameObject scalableObject;
-    public GameObject item;
-    public GameObject tempParent;
-    public Transform guide;
+	//public GameObject scalableObject;
+	public GameObject item;
+	//public GameObject tempParent;
+	//public Transform guide;
 
-    float minScaleFactor = 0.25f;
+	float minScaleFactor = 0.25f;
     float maxScaleFactor = 2.0f;
+
+    public Material defaultMaterial;
+    public Material selectedMaterial;
+    private Transform _selection; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +26,39 @@ public class ScaleObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.E))
-		{
-            Pickup();
-		}
-		if (Input.GetKeyUp(KeyCode.E))
-		{
-            Drop(); 
-		}
+  //      if(_selection != null)
+		//{
+  //          var selectedRenderer = _selection.GetComponent<Renderer>();
+  //          selectedRenderer.material = defaultMaterial;
+  //          _selection = null; 
 
-        
-    }
+		//}
+  //      var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+  //      RaycastHit hit; 
+  //      if(Physics.Raycast(ray, out hit)){
+  //          var selection = hit.transform;
+		//	if (selection.CompareTag("Scalable"))
+		//	{
+  //              var selectedRenderer = selection.GetComponent<Renderer>();
+  //              if (selectedRenderer != null)
+  //              {
+  //                  selectedRenderer.material = selectedMaterial;
+  //              }
+  //              _selection = selection;
+
+                //if (Input.GetKeyDown(KeyCode.E))
+                //{
+                //    Pickup(hit);
+                //}
+                //if (Input.GetKeyUp(KeyCode.E))
+                //{
+                //    Drop(hit);
+                //}
+
+            }
+
+        //}
+    //}
 
     void OnCollisionEnter(Collision other)
 	{
@@ -43,23 +69,23 @@ public class ScaleObjectScript : MonoBehaviour
 		}
 	}
 
-    void Pickup()
-	{
-        item.GetComponent<Rigidbody>().useGravity = false;
-        item.GetComponent<Rigidbody>().isKinematic = true;
-        item.transform.rotation = guide.transform.rotation;
-        item.transform.position = guide.transform.position;
-        item.transform.parent = tempParent.transform;
+ //   void Pickup(RaycastHit hit)
+	//{
+ //       hit.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
+ //       hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+ //       hit.transform.gameObject.transform.rotation = guide.transform.rotation;
+ //       hit.transform.gameObject.transform.position = guide.transform.position;
+ //       hit.transform.gameObject.transform.parent = tempParent.transform;
 
-    }
-    void Drop()
-    {
-        item.GetComponent<Rigidbody>().useGravity = true;
-        item.GetComponent<Rigidbody>().isKinematic = false;
-        item.transform.parent = null; 
-        item.transform.position = guide.transform.position;
+ //   }
+ //   void Drop(RaycastHit hit)
+ //   {
+ //       hit.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
+ //       hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+ //       hit.transform.gameObject.transform.parent = null; 
+ //       hit.transform.gameObject.transform.position = guide.transform.position;
 
-    }
+ //   }
 
 
     public void UpScale()
