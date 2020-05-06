@@ -54564,6 +54564,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 614087981}
     m_Modifications:
+    - target: {fileID: 642996253650903821, guid: 7cc71d67632724e07bfb136d61a3b4d7,
+        type: 3}
+      propertyPath: tempParent
+      value: 
+      objectReference: {fileID: 106554264}
+    - target: {fileID: 642996253650903821, guid: 7cc71d67632724e07bfb136d61a3b4d7,
+        type: 3}
+      propertyPath: guide
+      value: 
+      objectReference: {fileID: 106554265}
     - target: {fileID: 5237651430598216999, guid: 7cc71d67632724e07bfb136d61a3b4d7,
         type: 3}
       propertyPath: m_LocalPosition.x
