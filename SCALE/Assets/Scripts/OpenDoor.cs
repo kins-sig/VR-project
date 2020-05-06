@@ -26,6 +26,7 @@ public class OpenDoor : MonoBehaviour {
         {
             //When player activate trigger we show text
             isTriggerActive = true;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
             // OpenPanel.SetActive(true);
 
         }
