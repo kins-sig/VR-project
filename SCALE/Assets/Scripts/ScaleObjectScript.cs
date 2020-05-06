@@ -34,6 +34,15 @@ public class ScaleObjectScript : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Button"))
+		{
+            Debug.Log("Button pressed");
+            GetComponent<Rigidbody>().isKinematic = true; 
+		}
+	}
+
     void Pickup()
 	{
         item.GetComponent<Rigidbody>().useGravity = false;

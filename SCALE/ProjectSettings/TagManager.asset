@@ -8,6 +8,8 @@ TagManager:
   - ScaleDown
   - Scaleable
   - Scalable
+  - Door
+  - Button
   layers:
   - Default
   - TransparentFX

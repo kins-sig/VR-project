@@ -20,19 +20,19 @@ public class OpenDoor : MonoBehaviour {
 
 	}
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             //When player activate trigger we show text
             isTriggerActive = true;
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            //gameObject.GetComponent<Rigidbody>().isKinematic = true;
             // OpenPanel.SetActive(true);
 
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         //When player left triggered zone we hide panel with text
         isTriggerActive = false;
