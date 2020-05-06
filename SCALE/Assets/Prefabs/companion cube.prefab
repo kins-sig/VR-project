@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d39bc3ba4804b0dba9adb9f02d53a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScaleFactor: 0.25
-  maxScaleFactor: 2
+  item: {fileID: 9148141120147521332}
+  tempParent: {fileID: 0}
+  guide: {fileID: 0}
 --- !u!54 &7327888226180918505
 Rigidbody:
   m_ObjectHideFlags: 0

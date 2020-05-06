@@ -26,8 +26,6 @@ public class OpenDoor : MonoBehaviour {
         {
             //When player activate trigger we show text
             isTriggerActive = true;
-            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             // OpenPanel.SetActive(true);
 
         }
@@ -43,8 +41,6 @@ public class OpenDoor : MonoBehaviour {
         _animatorRD.SetBool("isopen", false);
         _animatorRD.Play("RDoorClose");
         isDoorOpened = false;
-        other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        other.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
 
         // OpenPanel.SetActive(false);
