@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10.0f; 
+    public float speed = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
         transform.Translate(straffe, 0, translation);
 
         if (Input.GetKeyDown("escape"))
-            Cursor.lockState = CursorLockMode.None; 
+            Cursor.lockState = CursorLockMode.None;
 
     }
+
 }
